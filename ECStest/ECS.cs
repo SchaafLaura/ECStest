@@ -13,7 +13,6 @@ public class ECS
     public ECS(int maxEntities)
     {
         _maxEntities = maxEntities;
-        
         var componentType = typeof(IComponent);
         var subclassTypes = Assembly
             .GetAssembly(typeof(IComponent))!
@@ -24,13 +23,13 @@ public class ECS
         var k = 0;
         foreach (var t in subclassTypes)
             dict.Add(t, k++);
-
         _typesToID = dict.ToFrozenDictionary();
+        
         _systems = new IComponent[_typesToID.Count][];
         foreach (var (type, id) in _typesToID)
             _systems[id] = (IComponent[]) Array.CreateInstance(type, maxEntities);
     }
-
+    
     public void Update()
     {
         foreach(var system in _systems)
