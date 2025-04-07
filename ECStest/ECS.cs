@@ -4,7 +4,6 @@ namespace ECSTest;
 public class ECS
 {
     private readonly List<IComponent[]> _systems = [];
-
     private readonly int _maxEntities;
     private static int runningID;
     public ECS(int maxEntities)

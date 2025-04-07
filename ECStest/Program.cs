@@ -7,5 +7,6 @@ var e0 = ecs.AddEntity(
 var e1 = ecs.AddEntity(
     new PhysicsComponent(),
     new RenderComponent());
-    
+
+
 var x = 5;
