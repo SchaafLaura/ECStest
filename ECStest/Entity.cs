@@ -1,5 +1,6 @@
 namespace ECSTest;
-public class Entity
+
+public record struct Entity
 {
-    public uint ID { get; set; }
+    public int ID { get; set; }
 }

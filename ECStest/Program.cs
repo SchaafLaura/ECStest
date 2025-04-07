@@ -1,3 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using ECSTest;
 
-Console.WriteLine("Hello, World!");
+var ecs = new ECS(1000);
