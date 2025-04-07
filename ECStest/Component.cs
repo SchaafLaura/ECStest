@@ -1,6 +1,6 @@
-namespace ECStest;
+namespace ECSTest;
 
-public class Component
+public interface IComponent
 {
-    
+
 }
