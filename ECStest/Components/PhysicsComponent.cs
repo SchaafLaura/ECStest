@@ -1,4 +1,4 @@
-namespace ECSTest;
+namespace ECSTest.Components;
 
 public class PhysicsComponent : IComponent
 {
