@@ -6,7 +6,6 @@ namespace ECSTest;
 public class ECS
 {
     private static int runningID;
-    
     private readonly int _maxEntities;
     private readonly IComponent[][] _systems;
     private readonly FrozenDictionary<Type, int> _typesToID;
@@ -18,7 +17,6 @@ public class ECS
             .GetAssembly(typeof(IComponent))!
             .GetTypes()
             .Where(t => componentType.IsAssignableFrom(t) && t.IsClass);
-        
         var dict = new Dictionary<Type, int>();
         var k = 0;
         foreach (var t in subclassTypes)
@@ -29,7 +27,6 @@ public class ECS
         foreach (var (type, id) in _typesToID)
             _systems[id] = (IComponent[]) Array.CreateInstance(type, maxEntities);
     }
-    
     public void Update()
     {
         foreach(var system in _systems)
