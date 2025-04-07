@@ -1,21 +1,20 @@
 using ECSTest.Components;
 
 namespace ECSTest;
-public class ECS
+public class ECS(int maxEntities)
 {
-    private readonly List<IComponent[]> _systems = [];
-    private readonly int _maxEntities;
+    private readonly IComponent[][] _systems =
+    [
+        new PhysicsComponent[maxEntities],
+        new RenderComponent[maxEntities]
+    ];
+
     private static int runningID;
-    public ECS(int maxEntities)
-    {
-        _maxEntities = maxEntities;
-        _systems.Add(new PhysicsComponent[maxEntities]);
-        _systems.Add(new RenderComponent[maxEntities]);
-    }
+
     public void Update()
     {
         foreach(var system in _systems)
-            for (var i = 0; i < _maxEntities; i++)
+            for (var i = 0; i < maxEntities; i++)
                 system[i].Update(i);
     }
     public Entity AddEntity(params IComponent[] components)
