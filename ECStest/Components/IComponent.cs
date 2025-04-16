@@ -14,16 +14,12 @@ internal static class ComponentExtensions
     static ComponentExtensions()
     {
         var componentType = typeof(IComponent);
-        var subclassTypes = Assembly
-            .GetAssembly(typeof(IComponent))!
+        TypesToID = Assembly
+            .GetAssembly(componentType)!
             .GetTypes()
-            .Where(t => componentType.IsAssignableFrom(t) && t.IsClass);
-        var dict = new Dictionary<Type, int>();
-        var k = 0;
-        foreach (var t in subclassTypes)
-            dict.Add(t, k++);
-        TypesToID = dict.ToFrozenDictionary();
+            .Where(t => componentType.IsAssignableFrom(t) && t.IsClass)
+            .Select((type, index) => new { type, index })
+            .ToFrozenDictionary(x => x.type, x => x.index);
     }
-
     public static int GetID(this IComponent c) => TypesToID[c.GetType()];
 }
