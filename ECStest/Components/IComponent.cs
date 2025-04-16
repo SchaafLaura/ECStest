@@ -2,7 +2,7 @@ using System.Collections.Frozen;
 using System.Reflection;
 
 namespace ECSTest.Components;
-public interface IComponent
+internal interface IComponent
 {
     public void Update(int id);
 }

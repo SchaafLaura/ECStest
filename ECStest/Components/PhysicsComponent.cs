@@ -1,5 +1,5 @@
 namespace ECSTest.Components;
-public class PhysicsComponent : IComponent
+internal class PhysicsComponent : IComponent
 {
     public void Update(int id)
     {

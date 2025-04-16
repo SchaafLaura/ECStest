@@ -1,5 +1,5 @@
 namespace ECSTest.Components;
-public class RenderComponent : IComponent
+internal class RenderComponent : IComponent
 {
     public void Update(int id)
     {

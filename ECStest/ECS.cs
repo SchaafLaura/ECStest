@@ -1,7 +1,7 @@
 using ECSTest.Components;
 
 namespace ECSTest;
-public class ECS
+internal class ECS
 {
     private static int runningID;
     private readonly int _maxEntities;

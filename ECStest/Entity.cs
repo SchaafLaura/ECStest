@@ -1,2 +1,2 @@
 namespace ECSTest;
-public record struct Entity(int ID);
+internal record struct Entity(int ID);
